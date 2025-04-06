@@ -73,3 +73,6 @@ class ReviewDB:
             VALUES (?, ?, ?)
         """, [(t.review_id, t.topic, t.sentiment) for t in topic_entries])
         self.conn.commit()
+
+#   TO DO**************
+  #WRONG REVIEW ID 
