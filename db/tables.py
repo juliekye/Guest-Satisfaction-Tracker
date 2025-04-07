@@ -1,15 +1,15 @@
 from dataclasses import dataclass
 from typing import Optional
 
-@dataclass
 class Review:
-    property_code: str
-    stars: float
-    title: str
-    date: str  # Stored in 'YYYY-MM-DD' format
-    body: str
-    age: str = None
-    id: Optional[int] = None
+    def __init__(self, id: Optional[int] = None, property_code: str = None, stars: float = None, title: str = None, date : str = None, body: str = None, age: str = None):
+        self.id = id
+        self.property_code = property_code
+        self.stars = stars
+        self.title = title
+        self.date = date # Stored in 'YYYY-MM-DD' format
+        self.body = body
+        self.age = age
 
 @dataclass
 class ReviewTopic:

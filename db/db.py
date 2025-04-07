@@ -53,6 +53,16 @@ class ReviewDB:
         """, (property_code,))
         rows = self.cursor.fetchall()
         return [Review(*row) for row in rows]
+    
+    def get_reviews_as_list(self):
+        self.cursor.execute("""
+            SELECT body
+            FROM reviews
+            WHERE body IS NOT NULL
+            AND TRIM(body) != ''
+        """)
+        rows = self.cursor.fetchall()
+        return list(map(lambda x: x[0], rows))
 
     
     def get_all_reviews(self) -> list[Review]:
